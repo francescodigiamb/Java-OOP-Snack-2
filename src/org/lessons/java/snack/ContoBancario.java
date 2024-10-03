@@ -1,27 +1,42 @@
 package org.lessons.java.snack;
 
-import java.util.Random;
-
 public class ContoBancario {
-	
-	private int numeroConto;
-	private double saldo;
-	private double deposito;
-	private double prelievo;
-	private double saldoCorrente;
-	
-	ContoBancario (int numeroConto) {
-		this.numeroConto = numeroConto;
-		this.saldo = 0;
-	}
-	
-	public void setDeposito (double deposito) {
-		 this.deposito = deposito;
-	}
-	public void setPrelievo (double prelievo) {
-		 this.prelievo = prelievo;
-	}
-	public double getContoCorrente () {
-		return saldo + (deposito - prelievo);	}
+    private String numeroConto;
+    private double saldo;
 
+    // Costruttore che accetta il numero di conto e inizializza il saldo a zero
+    public ContoBancario(String numeroConto) {
+        this.numeroConto = numeroConto;
+        this.saldo = 0.0;
+    }
+
+    // Metodo per depositare denaro sul conto
+    public void deposita(double importo) {
+        if (importo > 0) {
+            saldo += importo;
+            System.out.println("Deposito di " + importo + " effettuato.");
+        } else {
+            System.out.println("L'importo del deposito deve essere positivo.");
+        }
+    }
+
+    // Metodo per prelevare denaro dal conto
+    public void preleva(double importo) {
+        if (importo > 0 && importo <= saldo) {
+            saldo -= importo;
+            System.out.println("Prelievo di " + importo + " effettuato.");
+        } else if (importo > saldo) {
+            System.out.println("Saldo insufficiente per effettuare il prelievo.");
+        } 
+    }
+
+    // Metodo per ottenere il saldo corrente
+    public double getSaldo() {
+        return saldo;
+    }
+
+    // Metodo per ottenere il numero di conto
+    public String getNumeroConto() {
+        return numeroConto;
+    }
 }

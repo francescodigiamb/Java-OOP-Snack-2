@@ -4,10 +4,18 @@ public class Main {
 
 	public static void main(String[] args) {
 		
-		ContoBancario conto = new ContoBancario(160);
-		conto.setDeposito(1400);
-		conto.setPrelievo(250);
-		System.out.println("Il tuo conto corrente è di " + conto.getContoCorrente() + " €");
-	}
+        ContoBancario conto = new ContoBancario("123456789");
 
+        // Deposito di denaro
+        conto.deposita(1500);
+        System.out.println("Saldo corrente: " + conto.getSaldo());
+
+        // Prelievo di denaro
+        conto.preleva(250);
+        System.out.println("Saldo corrente: " + conto.getSaldo());
+
+        // Tentativo di prelievo con saldo insufficiente
+        conto.preleva(1400);
+        System.out.println("Saldo corrente: " + conto.getSaldo());
+    }
 }
