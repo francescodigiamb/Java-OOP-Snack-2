@@ -15,13 +15,13 @@ public class ContoBancario {
 		this.saldo = 0;
 	}
 	
-	public void setDeposito (double saldo) {
-		 this.saldo = saldo;
+	public void setDeposito (double deposito) {
+		 this.deposito = deposito;
 	}
-	public void setPrelievo (double saldo) {
-		 this.saldo = saldo;
+	public void setPrelievo (double prelievo) {
+		 this.prelievo = prelievo;
 	}
 	public double getContoCorrente () {
-		return saldo - saldo;	}
+		return saldo + (deposito - prelievo);	}
 
 }
